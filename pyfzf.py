@@ -33,7 +33,7 @@ import sys
 FZF_URL = "https://github.com/junegunn/fzf"
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 
-VERSION = (0, 0, 1) 
+VERSION = open(CURRENT_DIR+'/VERSION').read() 
 
 class FzfPrompt:
 	
