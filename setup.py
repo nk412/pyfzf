@@ -33,7 +33,7 @@ def read(filename):
 LONG_DESC = read('README.md') + '\nCHANGES\n=======\n\n' + read('CHANGES')
 
 setup(name='pyfzf',
-      version=read('VERSION'),
+      version=read('VERSION').strip('\n'),
       description="Python wrapper for junegunn's fuzzyfinder (fzf)",
       long_description=LONG_DESC,
       author='Nagarjuna Kumarappan',
