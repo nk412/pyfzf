@@ -30,7 +30,7 @@ prjdir = os.path.dirname(__file__)
 def read(filename):
     return open(os.path.join(prjdir, filename)).read()
 
-LONG_DESC = read('README') + '\nCHANGES\n=======\n\n' + read('CHANGES')
+LONG_DESC = read('README.md') + '\nCHANGES\n=======\n\n' + read('CHANGES')
 
 from pyfzf import VERSION
 
