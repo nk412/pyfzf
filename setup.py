@@ -23,7 +23,7 @@
 # Author: Nagarjuna Kumarappan <nagarjuna.412@gmail.com>
 
 import os
-from distutils.core import setup
+from setuptools import setup
 
 prjdir = os.path.dirname(__file__)
 
@@ -41,7 +41,7 @@ setup(name='pyfzf',
       author='Nagarjuna Kumarappan',
       license='MIT',
       author_email='nagarjuna.412@gmail.com',
-      url='http://pypi.python.org/pypi/pyfzf',
+      url='https://github.com/nk412/pyfzf',
       py_modules=['pyfzf'],
       classifiers=[
           'Development Status :: 1 - Alpha',
