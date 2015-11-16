@@ -36,12 +36,13 @@ from pyfzf import VERSION
 
 setup(name='pyfzf',
       version='.'.join([str(v) for v in VERSION]),
-      description='Python wrapper to call fuzzyfinder (fzf)',
+      description="Python wrapper for junegunn's fuzzyfinder (fzf)",
       long_description=LONG_DESC,
       author='Nagarjuna Kumarappan',
       license='MIT',
       author_email='nagarjuna.412@gmail.com',
       url='https://github.com/nk412/pyfzf',
+      install_requires=['plumbum']
       py_modules=['pyfzf'],
       classifiers=[
           'Development Status :: 1 - Alpha',
