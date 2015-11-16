@@ -43,7 +43,7 @@ setup(name='pyfzf',
       install_requires=['plumbum'],
       py_modules=['pyfzf'],
       classifiers=[
-          'Development Status :: 1 - Alpha',
+          'Development Status :: 4 - Beta',
           'Environment :: Console',
           'Intended Audience :: Developers',
           'License :: OSI Approved :: MIT License',
