@@ -43,7 +43,6 @@ setup(name='pyfzf',
       author_email='nagarjuna.412@gmail.com',
       url='http://pypi.python.org/pypi/pyfzf',
       py_modules=['pyfzf'],
-	  include_package_data=True,
       classifiers=[
           'Development Status :: 1 - Alpha',
           'Environment :: Console',
