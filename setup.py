@@ -42,7 +42,7 @@ setup(name='pyfzf',
       license='MIT',
       author_email='nagarjuna.412@gmail.com',
       url='https://github.com/nk412/pyfzf',
-      install_requires=['plumbum']
+      install_requires=['plumbum'],
       py_modules=['pyfzf'],
       classifiers=[
           'Development Status :: 1 - Alpha',
