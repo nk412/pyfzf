@@ -1,6 +1,6 @@
 include requirements.txt
 include VERSION
-include README
+include README.md
 include CHANGES
 recursive-include pyfzf *
 
