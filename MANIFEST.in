@@ -1,1 +1,4 @@
-include scripts/*
+include pyfzf/*
+include requirements.txt
+include VERSION
+
