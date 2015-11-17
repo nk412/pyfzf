@@ -61,7 +61,7 @@ class FzfPrompt:
 				input_file.write(choices_str)
 				input_file.flush()
 				
-				self.sh['-c',CURRENT_DIR+"/scripts/filefzf.sh {0} {1} {2}".format( input_file.name, output_file.name, fzf_options )] & FG
+				self.sh['-c',CURRENT_DIR+"/filefzf.sh {0} {1} {2}".format( input_file.name, output_file.name, fzf_options )] & FG
 			
 				# get selected options
 				with open(output_file.name) as f:
