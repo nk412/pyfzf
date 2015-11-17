@@ -24,6 +24,10 @@
 
 import os
 from setuptools import setup
+from distutils.command.install import INSTALL_SCHEMES
+
+for scheme in INSTALL_SCHEMES.values():
+    scheme['data'] = scheme['purelib']
 
 prjdir = os.path.dirname(__file__)
 
@@ -33,6 +37,7 @@ def read(filename):
 LONG_DESC = read('README.md') + '\nCHANGES\n=======\n\n' + read('CHANGES')
 
 setup(name='pyfzf',
+	  include_package_data=True,
       version=read('VERSION').strip('\n'),
       description="Python wrapper for junegunn's fuzzyfinder (fzf)",
       long_description=LONG_DESC,
@@ -42,6 +47,7 @@ setup(name='pyfzf',
       url='https://github.com/nk412/pyfzf',
       install_requires=['plumbum'],
       py_modules=['pyfzf'],
+	  packages=['pyfzf'],
       classifiers=[
           'Development Status :: 4 - Beta',
           'Environment :: Console',

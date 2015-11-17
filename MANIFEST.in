@@ -1,4 +1,6 @@
-include filefzf.sh
 include requirements.txt
 include VERSION
+include README
+include CHANGES
+recursive-include pyfzf *
 
