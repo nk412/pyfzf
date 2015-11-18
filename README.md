@@ -1,15 +1,23 @@
-# pyfzf
+pyfzf
+=====
+##### A python wrapper for *junegunn*'s awesome [fzf](https://github.com/junegunn/fzf).
 
-##### A python wrapper for *junegunn*'s [fzf](https://github.com/junegunn/fzf).
+![](https://raw.githubusercontent.com/nk412/pyfzf/master/pyfzf.gif)
 
-## Requirements
+Requirements
+------------
+
 * Python 2.6+
 * [fzf](https://github.com/junegunn/fzf)
 
-## Installation
-	pip install git+git://github.com/nk412/pyfzf.git
+*Note*: fzf must be installed and available on PATH.
 
-## Usage
+Installation
+------------
+	pip install pyfzf
+
+Usage
+-----
     >>> from pyfzf import FzfPrompt
     >>> fp = FzfPrompt()
     >>> fp.prompt(range(0,10))
