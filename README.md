@@ -19,11 +19,20 @@ Installation
 Usage
 -----
     >>> from pyfzf import FzfPrompt
-    >>> fp = FzfPrompt()
-    >>> fp.prompt(range(0,10))
-    ['1','2']
+    >>> fzf = FzfPrompt()
 
+Simply pass a list of options to the prompt function to invoke fzf.
 
+    >>> fzf.prompt(range(0,10))
 
+Pass additional arguments to fzf as a second argument
 
+	>>> fzf.prompt(range(0,10), '--multi --cycle')
 
+License
+-------
+MIT
+
+Thanks
+------
+This project makes use of [plumbum](http://plumbum.readthedocs.org/) to interact with [fzf](https://github.com/junegunn/fzf).
