@@ -1,5 +1,9 @@
 pyfzf
 =====
+
+![](https://img.shields.io/badge/license-MIT-green.svg?style=flat)
+![https://pypi.python.org/pypi/pyfzf](https://img.shields.io/pypi/dm/pyfzf.svg?style=flat)
+   
 ##### A python wrapper for *junegunn*'s awesome [fzf](https://github.com/junegunn/fzf).
 
 ![](https://raw.githubusercontent.com/nk412/pyfzf/master/pyfzf.gif)
