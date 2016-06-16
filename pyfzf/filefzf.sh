@@ -1,5 +1,8 @@
+#!/usr/bin/env bash
 # ./filefzf <input> <output> [options]
 # runs fzf through the input file and dumps output onto output_file
+
+set -e
 
 if [ $# -lt 2 ]; then
 	echo "Need atleast 2 arguments. <input> <output> [options]"
@@ -13,5 +16,4 @@ shift
 options="$@"
 
 cat $input_file | fzf $options > $output_file
-
-exit 0
+exit $?
