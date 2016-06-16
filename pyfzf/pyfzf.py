@@ -22,19 +22,14 @@
 #
 # Author: Nagarjuna Kumarappan <nagarjuna.412@gmail.com>
 
-
-# imports
 from plumbum import local, FG
 import tempfile
 import os
-import sys
 
 # constants
 FZF_URL = "https://github.com/junegunn/fzf"
 CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 
-
-# VERSION = open(CURRENT_DIR+'/VERSION').read().strip('\n').split('.')
 
 class FzfPrompt:
     def __init__(self):
@@ -50,11 +45,11 @@ class FzfPrompt:
         selection = []
         with tempfile.NamedTemporaryFile() as input_file:
             with tempfile.NamedTemporaryFile() as output_file:
-                # create an temp file with list entries as lines
+                # Create an temp file with list entries as lines
                 input_file.write(choices_str)
                 input_file.flush()
 
-				# invove fzf externally and write to output file
+				# Invoke fzf externally and write to output file
                 self.sh['-c', CURRENT_DIR + "/filefzf.sh {0} {1} {2}".format(input_file.name, output_file.name,
                                                                              fzf_options)] & FG
 
