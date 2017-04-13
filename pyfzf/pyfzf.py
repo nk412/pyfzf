@@ -43,8 +43,8 @@ class FzfPrompt:
         # convert lists to strings [ 1, 2, 3 ] => "1\n2\n3"
         choices_str = '\n'.join(map(str, choices))
         selection = []
-        with tempfile.NamedTemporaryFile() as input_file:
-            with tempfile.NamedTemporaryFile() as output_file:
+        with tempfile.NamedTemporaryFile(mode="w+") as input_file:
+            with tempfile.NamedTemporaryFile(mode="w+") as output_file:
                 # Create an temp file with list entries as lines
                 input_file.write(choices_str)
                 input_file.flush()
