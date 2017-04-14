@@ -11,14 +11,14 @@ pyfzf
 Requirements
 ------------
 
-* Python 2.6+
+* Python 2.6+, 3.0+
 * [fzf](https://github.com/junegunn/fzf)
 
 *Note*: fzf must be installed and available on PATH.
 
 Installation
 ------------
-	pip install pyfzf
+    pip install pyfzf
 
 Usage
 -----
@@ -35,7 +35,11 @@ Simply pass a list of options to the prompt function to invoke fzf.
 
 Pass additional arguments to fzf as a second argument
 
-	>>> fzf.prompt(range(0,10), '--multi --cycle')
+    >>> fzf.prompt(range(0,10), '--multi --cycle')
+
+Pass multiword arguments to fzf
+
+    >>> fzf.prompt(range(0,10), '--header="Custom header" --query="^prefix suffix$"')
 
 License
 -------
