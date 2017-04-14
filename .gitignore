@@ -1,1 +1,6 @@
 *.pyc
+
+# Eclipse
+.project
+.pydevproject
+.settings

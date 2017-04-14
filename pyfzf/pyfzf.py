@@ -49,8 +49,8 @@ class FzfPrompt:
                 input_file.write(choices_str)
                 input_file.flush()
 
-				# Invoke fzf externally and write to output file
-                self.sh['-c', CURRENT_DIR + "/filefzf.sh {0} {1} {2}".format(input_file.name, output_file.name,
+                # Invoke fzf externally and write to output file
+                self.sh['-c', CURRENT_DIR + "/filefzf.sh {0} {1} {2!r}".format(input_file.name, output_file.name,
                                                                              fzf_options)] & FG
 
                 # get selected options
