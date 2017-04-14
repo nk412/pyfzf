@@ -15,5 +15,5 @@ output_file=$1
 shift
 options="$@"
 
-cat $input_file | fzf $options > $output_file
+cat $input_file | eval fzf $options > $output_file
 exit $?
