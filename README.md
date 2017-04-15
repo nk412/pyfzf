@@ -12,6 +12,7 @@ Requirements
 ------------
 
 * Python 2.6+
+* Python 3.0+
 * [fzf](https://github.com/junegunn/fzf)
 
 *Note*: fzf must be installed and available on PATH.

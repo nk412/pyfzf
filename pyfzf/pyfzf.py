@@ -46,7 +46,7 @@ class FzfPrompt:
         with tempfile.NamedTemporaryFile() as input_file:
             with tempfile.NamedTemporaryFile() as output_file:
                 # Create an temp file with list entries as lines
-                input_file.write(choices_str)
+                input_file.write(choices_str.encode('utf-8'))
                 input_file.flush()
 
 				# Invoke fzf externally and write to output file
