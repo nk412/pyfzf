@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # coding: utf-8
-# Copyright (c) 2015 Nagarjuna Kumarappan
+# Copyright (c) 2020 Nagarjuna Kumarappan
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -28,7 +28,6 @@ import os
 
 # constants
 FZF_URL = "https://github.com/junegunn/fzf"
-CURRENT_DIR = os.path.dirname(os.path.realpath(__file__))
 
 
 class FzfPrompt:
@@ -49,9 +48,8 @@ class FzfPrompt:
                 input_file.write(choices_str.encode('utf-8'))
                 input_file.flush()
 
-				# Invoke fzf externally and write to output file
-                self.sh['-c', CURRENT_DIR + "/filefzf.sh {0} {1} {2}".format(input_file.name, output_file.name,
-                                                                             fzf_options)] & FG
+                # Invoke fzf externally and write to output file
+                self.sh['-c', f"cat {input_file.name} | fzf {fzf_options} > {output_file.name}"] & FG
 
                 # get selected options
                 with open(output_file.name) as f:
