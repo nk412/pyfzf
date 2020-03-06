@@ -11,8 +11,7 @@ pyfzf
 Requirements
 ------------
 
-* Python 2.6+
-* Python 3.0+
+* Python 3.6+
 * [fzf](https://github.com/junegunn/fzf)
 
 *Note*: fzf must be installed and available on PATH.
@@ -23,7 +22,7 @@ Installation
 
 Usage
 -----
-    >>> from pyfzf import FzfPrompt
+    >>> from pyfzf.pyfzf import FzfPrompt
     >>> fzf = FzfPrompt()
 
 Simply pass a list of options to the prompt function to invoke fzf.
