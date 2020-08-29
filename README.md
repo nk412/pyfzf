@@ -33,6 +33,12 @@ You can pass additional arguments to fzf as a second argument
 
     >>> fzf.prompt(list(range(0,10)), '--multi --cycle')
 
+Input items are written to a temporary file which is then passed to fzf.
+The items are delimited with `\n` by default, you can also change the delimiter
+(useful for multiline items)
+
+    >>> fzf.prompt(list(range(0,10)), '--read0', '\0')
+
 License
 -------
 MIT
