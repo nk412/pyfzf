@@ -23,7 +23,6 @@
 # Author: Nagarjuna Kumarappan <nagarjuna.412@gmail.com>
 
 from shutil import which
-from subprocess import Popen, PIPE
 import os
 import tempfile
 
@@ -36,8 +35,9 @@ class FzfPrompt:
     def __init__(self, executable_path=None):
         if executable_path:
             self.executable_path = executable_path
-        elif not which("fzf") and not self.executable_path:
-            raise SystemError(f"Cannot find 'fzf' installed on PATH. ({FZF_URL})")
+        elif not which("fzf") and not executable_path:
+            raise SystemError(
+                f"Cannot find 'fzf' installed on PATH. ({FZF_URL})")
         else:
             self.executable_path = "fzf"
 
@@ -45,25 +45,23 @@ class FzfPrompt:
         # convert lists to strings [ 1, 2, 3 ] => "1\n2\n3"
         choices_str = delimiter.join(map(str, choices))
         selection = []
-        if os.name == "nt":
-            # Invoke fzf externally and get stdout
-            p = Popen(f"{self.executable_path} {fzf_options}", stdout=PIPE, stdin=PIPE, stderr=PIPE)
-            output = p.communicate(input=choices_str.encode())[0].decode()
-            # get selected options
-            for line in output.strip().split("\n"):
-                selection.append(line)
-        else:
-            with tempfile.NamedTemporaryFile() as input_file:
-                with tempfile.NamedTemporaryFile() as output_file:
-                    # Create an temp file with list entries as lines
-                    input_file.write(choices_str.encode('utf-8'))
-                    input_file.flush()
 
-                    # Invoke fzf externally and write to output file
-                    os.system(f"{self.executable_path} {fzf_options} < {input_file.name} > {output_file.name}")
+        with tempfile.NamedTemporaryFile(delete=False) as input_file:
+            with tempfile.NamedTemporaryFile(delete=False) as output_file:
+                # Create an temp file with list entries as lines
+                input_file.write(choices_str.encode('utf-8'))
+                input_file.flush()
 
-                    # get selected options
-                    with open(output_file.name) as f:
-                        for line in f:
-                            selection.append(line.strip('\n'))
+        # Invoke fzf externally and write to output file
+        os.system(
+            f"{self.executable_path} {fzf_options} < \"{input_file.name}\" > \"{output_file.name}\"")
+
+        # get selected options
+        with open(output_file.name) as f:
+            for line in f:
+                selection.append(line.strip('\n'))
+
+        os.unlink(input_file.name)
+        os.unlink(output_file.name)
+
         return selection
