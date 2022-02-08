@@ -25,19 +25,23 @@ Usage
     >>> from pyfzf.pyfzf import FzfPrompt
     >>> fzf = FzfPrompt()
 
+If `fzf` is not available on PATH, you can specify a location
+
+    >>> fzf = FzfPrompt('/path/to/fzf')
+
 Simply pass a list of options to the prompt function to invoke fzf.
 
     >>> fzf.prompt(range(0,10))
 
 You can pass additional arguments to fzf as a second argument
 
-    >>> fzf.prompt(list(range(0,10)), '--multi --cycle')
+    >>> fzf.prompt(range(0,10), '--multi --cycle')
 
 Input items are written to a temporary file which is then passed to fzf.
 The items are delimited with `\n` by default, you can also change the delimiter
 (useful for multiline items)
 
-    >>> fzf.prompt(list(range(0,10)), '--read0', '\0')
+    >>> fzf.prompt(range(0,10), '--read0', '\0')
 
 License
 -------
@@ -45,4 +49,4 @@ MIT
 
 Thanks
 ------
-This project makes use of [plumbum](http://plumbum.readthedocs.org/) to interact with [fzf](https://github.com/junegunn/fzf).
+@brookite for adding Windows support in v0.3.0
