@@ -57,7 +57,7 @@ class FzfPrompt:
             f"{self.executable_path} {fzf_options} < \"{input_file.name}\" > \"{output_file.name}\"")
 
         # get selected options
-        with open(output_file.name) as f:
+        with open(output_file.name, encoding="utf-8") as f:
             for line in f:
                 selection.append(line.strip('\n'))
 
