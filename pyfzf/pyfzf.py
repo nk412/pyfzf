@@ -42,13 +42,13 @@ class FzfPrompt:
             self.executable_path = "fzf"
 
     def prompt(self, choices=None, fzf_options="", delimiter='\n'):
-        # convert lists to strings [ 1, 2, 3 ] => "1\n2\n3"
+        # convert a list to a string [ 1, 2, 3 ] => "1\n2\n3"
         choices_str = delimiter.join(map(str, choices))
         selection = []
 
         with tempfile.NamedTemporaryFile(delete=False) as input_file:
             with tempfile.NamedTemporaryFile(delete=False) as output_file:
-                # Create an temp file with list entries as lines
+                # Create a temp file with list entries as lines
                 input_file.write(choices_str.encode('utf-8'))
                 input_file.flush()
 
