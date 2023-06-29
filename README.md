@@ -37,6 +37,15 @@ You can pass additional arguments to fzf as a second argument
 
     >>> fzf.prompt(range(0,10), '--multi --cycle')
 
+Note that `pyfzf` respects all [`fzf` environment variables](https://github.com/junegunn/fzf#environment-variables).
+For example, if you include the following line in your shell's rc file
+
+    FZF_DEFAULT_OPTS="--multi --cycle"
+
+then the above Python REPL line can be simplified to
+
+    >>> fzf.prompt(range(0,10))
+
 Input items are written to a temporary file which is then passed to fzf.
 The items are delimited with `\n` by default, you can also change the delimiter
 (useful for multiline items)
