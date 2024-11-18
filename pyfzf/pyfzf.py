@@ -25,14 +25,14 @@
 from shutil import which
 import os
 import tempfile
-
+from typing import Any
 
 # constants
 FZF_URL = "https://github.com/junegunn/fzf"
 
 
 class FzfPrompt:
-    def __init__(self, executable_path=None):
+    def __init__(self, executable_path: str | None = None) -> None:
         if executable_path:
             self.executable_path = executable_path
         elif not which("fzf") and not executable_path:
@@ -41,7 +41,9 @@ class FzfPrompt:
         else:
             self.executable_path = "fzf"
 
-    def prompt(self, choices=None, fzf_options="", delimiter='\n'):
+    def prompt(
+        self, choices: list[Any], fzf_options: str = "", delimiter: str = "\n"
+    ) -> list[str]:
         # convert a list to a string [ 1, 2, 3 ] => "1\n2\n3"
         choices_str = delimiter.join(map(str, choices))
         selection = []
